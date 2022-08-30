@@ -1,0 +1,73 @@
+<ion-app>
+  <ion-menu side="start" content-id="main-content">
+    <ion-header>
+      <ion-toolbar translucent>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-label>E-mail</ion-label> <ion-badge class="menu__notification">1</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="paper-plane" slot="start"></ion-icon>
+          <ion-label>Mensagens</ion-label> <ion-badge class="menu__notification">1</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="heart" slot="start"></ion-icon>
+          <ion-label>Favoritos</ion-label>  <ion-badge class="menu__notification">1</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="archive" slot="start"></ion-icon>
+          <ion-label>Arquivados</ion-label> <ion-badge class="menu__notification">1</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="trash" slot="start"></ion-icon>
+          <ion-label>Lixeira</ion-label>  <ion-badge class="menu__notification">1</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="warning" slot="start"></ion-icon>
+          <ion-label>Spam</ion-label>  <ion-badge class="menu__notification">1</ion-badge>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Calcu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-label position="floating">Número 1:</ion-label>
+        <ion-input [(ngModel)]="num1" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Número 2:</ion-label>
+        <ion-input [(ngModel)]="num2" type="number"></ion-input>
+      </ion-item>
+      <div class="button__calc">
+        <ion-button shape="round" (click)="somar()">+</ion-button>
+        <ion-button shape="round" (click)="subtrair()">-</ion-button> 
+        <ion-button shape="round" (click)="dividir()">/</ion-button>
+        <ion-button shape="round" (click)="multiplicar()">*</ion-button>
+      </div>
+      <div class="resultado__calc">
+        <h6>{{ saida }}</h6>
+      </div>
+      <div>
+        <img src="projetolas\src\assets\check.png" alt="">
+      </div>
+    </ion-content>
+  </div>
+</ion-app>
+<script>
+     window.menuController = menuController;
+</script>

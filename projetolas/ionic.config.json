@@ -1,0 +1,7 @@
+{
+  "name": "projetolas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
