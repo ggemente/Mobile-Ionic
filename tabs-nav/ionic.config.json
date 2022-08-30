@@ -1,0 +1,7 @@
+{
+  "name": "tabs-nav",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

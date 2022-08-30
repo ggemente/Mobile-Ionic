@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sei la oq trinagulo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">joinha</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="container">
+    <ion-item>
+      <ion-label position="floating">Lado A</ion-label>
+      <ion-input [(ngModel)]="A" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Lado B</ion-label>
+      <ion-input [(ngModel)]="B" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Lado C</ion-label>
+      <ion-input [(ngModel)]="C" type="number"></ion-input>
+    </ion-item>
+    <div class="button__calc">
+      <ion-button shape="round" (click)="calcular2()" > AAAA </ion-button>
+    </div>
+    <div>
+      {{erro}}
+    </div>
+  </div>
+
+</ion-content>
