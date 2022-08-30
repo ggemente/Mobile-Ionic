@@ -1,0 +1,48 @@
+<ion-app>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>IMC</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div id="container">
+        <ion-item>
+          <ion-label position="floating">Peso:</ion-label>
+          <ion-input [(ngModel)]="num1" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Altura:</ion-label>
+          <ion-input [(ngModel)]="num2" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Sexo:</ion-label>
+          <ion-select class="custom-options" [(ngModel)]="sexo">
+            <ion-select-option value="m">Masculino</ion-select-option>
+            <ion-select-option value="f">Feminino</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="button__calcular">
+          <ion-button shape="round" (click)="calcular()">IMC</ion-button>
+        </div>
+        <ion-label>
+            {{ saida }}
+         </ion-label>
+         <div>
+          <ion-label>
+            {{ saida2 }}
+         </ion-label>
+         </div>
+         <div id="icon__certo">
+          <ion-img src="{{ imagem }}" alt=""></ion-img>
+         </div>
+      </div>
+    </ion-content>
+  </div>
+</ion-app>
+<script>
+     window.menuController = menuController;
+</script>
