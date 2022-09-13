@@ -1,0 +1,7 @@
+{
+  "name": "navscreen",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

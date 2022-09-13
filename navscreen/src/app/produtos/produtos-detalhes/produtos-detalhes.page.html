@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>
+      <h2 class="produto__title">{{produtoSelecionado.nome}}</h2>
+      <p class="produto__text">Preço: R$ {{produtoSelecionado.valor}}</p>
+      <p class="produto__text">Fabricante: {{produtoSelecionado.fabricante}}</p>
+      <ion-img src="{{produtoSelecionado.imagem}}" class="produto__img"> </ion-img>
+    </ion-label>
+  </ion-item>
+</ion-content>
