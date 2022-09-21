@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Serviços</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+      <ion-label>
+        <div class="display__flex">
+          <div class="image__display">
+            <ion-img src="assets/fenda.png" class="imagem"></ion-img>
+          </div>
+          <div class="title__display" *ngIf="!valorPadrao">
+            <h1>Dados do Serviço</h1>
+          </div>
+          <div class="desc__display" *ngIf="!valorPadrao">
+            <h3>{{produtoSelecionado.nome}}</h3>
+            <h3>{{produtoSelecionado.valor}}</h3> 
+          </div>
+          <div class="button__display" *ngIf="!valorPadrao">
+            <ion-button (click)="alterarDado()">Alterar Dados</ion-button>
+          </div>
+          <div class="button_display" *ngIf="!valorPadrao">
+            <ion-button (click)="removerDado()" routerLink="/servicos">Excluir</ion-button>
+          </div>
+          <form *ngIf="valorPadrao">
+            <div class="title__display">
+              <h1>Alterar Dados do Serviço</h1>
+            </div>
+            <div class="desc__display" >
+              <ion-item>
+                <ion-label position="floating" >Nome</ion-label>
+                <ion-input [(ngModel)]="produtoSelecionado.nome" name="nome"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating" >Valor</ion-label>
+                <ion-input [(ngModel)]="produtoSelecionado.valor" name="valor"></ion-input>
+              </ion-item>
+            </div>
+            <div class="button__display">
+              <ion-button (click)="salvarDado()" routerLink="/servicos" >Salvar</ion-button>
+            </div>
+          </form>
+        </div>
+      </ion-label>
+    </ion-item>
+</ion-content>

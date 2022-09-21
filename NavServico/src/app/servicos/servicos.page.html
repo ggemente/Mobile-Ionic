@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Serviços</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor ="let todosDados of todosDados" routerLink="/serv-interno/{{todosDados.id}}">
+    <div class="servico">
+      <h2>{{todosDados.nome}}</h2>
+      <p>R$ {{todosDados.valor}}</p>
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-button routerLink="/serv-interno/-1">Adicionar Serviço</ion-button>
+  </ion-item>
+</ion-content>
+
+<script></script>
