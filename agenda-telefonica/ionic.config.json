@@ -1,0 +1,7 @@
+{
+  "name": "agenda-telefonica",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

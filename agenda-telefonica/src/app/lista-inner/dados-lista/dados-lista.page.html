@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="!valorPadrao">Dados Contato</ion-title>
+    <ion-title *ngIf="valorPadrao">Editar Contato</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <div class="contato" *ngIf="!valorPadrao">
+      <h2>{{telSelecionado.nome}}</h2>
+      <p>{{telSelecionado.numero}}</p>
+      <p>{{telSelecionado.tipo}}</p>
+    </div>
+  </ion-item>
+  
+  <div style="text-align:center">
+    <ion-button (click)="alterarDado()" *ngIf="!valorPadrao">Alterar Contato</ion-button>
+  </div>
+
+  <div style="text-align:center">
+    <ion-button (click)="removerDado()" *ngIf="!valorPadrao" routerLink="/listagem-telefones">Remover Contato</ion-button>
+  </div>
+
+  <form *ngIf="valorPadrao">
+    <div class="edit__display">
+      <ion-item>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input [(ngModel)]="telSelecionado.nome" name="nome"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Número</ion-label>
+        <ion-input [(ngModel)]="telSelecionado.numero" name="numero"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Tipo</ion-label>
+        <ion-input [(ngModel)]="telSelecionado.tipo" name="tipo"></ion-input>
+      </ion-item>
+    </div>
+    <div class="button__display">
+      <ion-button (click)="salvarDado()" routerLink="/listagem-telefones" >Salvar</ion-button>
+    </div>
+  </form>
+</ion-content>
