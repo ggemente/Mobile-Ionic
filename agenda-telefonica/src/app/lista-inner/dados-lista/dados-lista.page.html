@@ -17,13 +17,18 @@
     </div>
   </ion-item>
   
-  <div style="text-align:center">
-    <ion-button (click)="alterarDado()" *ngIf="!valorPadrao">Alterar Contato</ion-button>
-  </div>
 
-  <div style="text-align:center">
-    <ion-button (click)="removerDado()" *ngIf="!valorPadrao" routerLink="/listagem-telefones">Remover Contato</ion-button>
-  </div>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="alterarDado()" *ngIf="!valorPadrao">
+      <ion-icon name="pencil-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="removerDado()" *ngIf="!valorPadrao" routerLink="/listagem-telefones">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
   <form *ngIf="valorPadrao">
     <div class="edit__display">
@@ -41,7 +46,9 @@
       </ion-item>
     </div>
     <div class="button__display">
-      <ion-button (click)="salvarDado()" routerLink="/listagem-telefones" >Salvar</ion-button>
+      <ion-button (click)="salvarDado()" routerLink="/listagem-telefones">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
     </div>
   </form>
 </ion-content>

@@ -1,3 +1,28 @@
+
+
 .contato p {
     text-transform: capitalize;
+    font-size: 15px;
+}
+
+.contato h2 {
+    font-size: 19px;
+    padding-bottom: 6px;
+}
+
+.contato {
+    background-color: rgba(207, 207, 207, 0.699);
+    border-radius: 30px;
+    width: 100%;
+    padding: 0px 10px;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+}
+
+.item__contato {
+    margin: 10px 0;
+    border: none;
 }
