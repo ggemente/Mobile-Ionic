@@ -14,9 +14,13 @@
       <p>R$ {{todosDados.valor}}</p>
     </div>
   </ion-item>
-  <ion-item>
-    <ion-button routerLink="/serv-interno/-1">Adicionar Serviço</ion-button>
-  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button routerLink="/serv-interno/-1">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>
 
 <script></script>

@@ -3,8 +3,18 @@
     flex-direction: column;
 }
 
+.image__display {
+    width: 70px;
+}
+
 .title__display h1 {
     margin-bottom: 10px;
+    color: #3880ff;
+    font-weight: 550;
+}
+
+.desc__display {
+    width: 100%;
 }
 
 .desc__display h3 {
@@ -15,4 +25,8 @@
 .imagem {
     width: 32px;
     margin-bottom: 10px;
+}
+
+.widht100 {
+    width: 100%;
 }

@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="width:100% ; height:100%">
     <ion-item>
       <ion-label>
         <div class="display__flex">
@@ -21,15 +21,9 @@
             <h3>{{produtoSelecionado.nome}}</h3>
             <h3>{{produtoSelecionado.valor}}</h3> 
           </div>
-          <div class="button__display" *ngIf="!valorPadrao">
-            <ion-button (click)="alterarDado()">Alterar Dados</ion-button>
-          </div>
-          <div class="button_display" *ngIf="!valorPadrao">
-            <ion-button (click)="removerDado()" routerLink="/servicos">Excluir</ion-button>
-          </div>
-          <form *ngIf="valorPadrao">
+          <form *ngIf="valorPadrao" class="width100">
             <div class="title__display">
-              <h1>Alterar Dados do Serviço</h1>
+              <h1>Dados do Serviço</h1>
             </div>
             <div class="desc__display" >
               <ion-item>
@@ -42,10 +36,23 @@
               </ion-item>
             </div>
             <div class="button__display">
-              <ion-button (click)="salvarDado()" routerLink="/servicos" >Salvar</ion-button>
+              <ion-button (click)="salvarDado()" routerLink="/servicos" >
+                <ion-icon name="checkmark-outline"></ion-icon>
+              </ion-button>
             </div>
           </form>
         </div>
       </ion-label>
     </ion-item>
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button (click)="alterarDado()" *ngIf="!valorPadrao">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="removerDado()" *ngIf="!valorPadrao" routerLink="/servicos">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>
