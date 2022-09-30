@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TelefonesService } from 'src/app/telefones.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-dados-lista',
@@ -14,8 +15,11 @@ export class DadosListaPage implements OnInit {
 
   constructor(
     private dadoSelecionado : TelefonesService,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private alertController: AlertController
   ) { }
+
+    
 
   ngOnInit() {
     const id : number = Number(this.route.snapshot.paramMap.get('id'))
@@ -26,6 +30,29 @@ export class DadosListaPage implements OnInit {
       this.telSelecionado = {id, nome: "", numero: "", tipo: ""}
       this.valorPadrao = true
     }
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Deseja excluir este contato?',
+      buttons: [
+        {
+          text: 'Sim',
+          role: 'excluir',
+          handler: () => {
+            this.removerDado()
+          }
+          
+        },
+
+        {
+          text: 'Não',
+          role: 'cancelar'
+        }
+      ],
+    });
+
+    await alert.present();
   }
 
   alterarDado() {

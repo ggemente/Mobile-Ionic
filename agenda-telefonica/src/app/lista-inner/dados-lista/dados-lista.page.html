@@ -9,11 +9,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <div class="contato" *ngIf="!valorPadrao">
-      <h2>{{telSelecionado.nome}}</h2>
+  <ion-item *ngIf="!valorPadrao">
+    <div class="contato" >
+      <h2>{{telSelecionado.nome}} {{telSelecionado.sobrenome}}</h2>
       <p>{{telSelecionado.numero}}</p>
-      <p>{{telSelecionado.tipo}}</p>
+      <p>{{telSelecionado.email}}</p>
+      <p style="text-transform: capitalize;">{{telSelecionado.tipo}}</p>
     </div>
   </ion-item>
   
@@ -25,25 +26,38 @@
   </ion-fab>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="removerDado()" *ngIf="!valorPadrao" routerLink="/listagem-telefones">
+    <ion-fab-button (click)="presentAlert()" *ngIf="!valorPadrao">
       <ion-icon name="trash-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-  <form *ngIf="valorPadrao">
+  <form *ngIf="valorPadrao" #form="ngForm">
     <div class="edit__display">
       <ion-item>
         <ion-label position="floating">Nome</ion-label>
         <ion-input [(ngModel)]="telSelecionado.nome" name="nome"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Número</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.numero" name="numero"></ion-input>
+        <ion-label position="floating">Sobrenome</ion-label>
+        <ion-input [(ngModel)]="telSelecionado.sobrenome" name="sobrenome"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Tipo</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.tipo" name="tipo"></ion-input>
+        <ion-label position="floating">Número</ion-label>
+        <ion-input [(ngModel)]="telSelecionado.numero" name="numero" type="float" maxlength="15" placeholder="(99) 99999-9999" mask="(**) *****-****"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input [(ngModel)]="telSelecionado.email" name="email"></ion-input>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-select placeholder="Selecione o tipo do contato:" [(ngModel)]="telSelecionado.tipo" [ngModelOptions]="{standalone: true}">
+            <ion-select-option value="celular" name="celular">Celular</ion-select-option>
+            <ion-select-option value="casa" name="casa">Casa</ion-select-option>
+            <ion-select-option value="trabalho" name="trabalho">Trabalho</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
     </div>
     <div class="button__display">
       <ion-button (click)="salvarDado()" routerLink="/listagem-telefones">
