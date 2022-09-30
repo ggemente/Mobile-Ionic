@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TelefonesService } from 'src/app/telefones.service';
 import { AlertController } from '@ionic/angular';
 
@@ -14,6 +14,7 @@ export class DadosListaPage implements OnInit {
   public valorPadrao = false
 
   constructor(
+    private router : Router,
     private dadoSelecionado : TelefonesService,
     private route : ActivatedRoute,
     private alertController: AlertController
@@ -72,6 +73,7 @@ export class DadosListaPage implements OnInit {
 
   removerDado() {
     this.dadoSelecionado.removeDado(this.telSelecionado)
+    this.router.navigate(['/listagem-telefones/'])
   }
 
 }
