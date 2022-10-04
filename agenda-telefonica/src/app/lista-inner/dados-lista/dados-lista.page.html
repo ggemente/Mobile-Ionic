@@ -31,23 +31,23 @@
     </ion-fab-button>
   </ion-fab>
 
-  <form *ngIf="valorPadrao" #form="ngForm">
+  <form *ngIf="valorPadrao" #form="ngForm" (ngSubmit)="salvarDado()" [formGroup]="userForm">
     <div class="edit__display">
       <ion-item>
         <ion-label position="floating">Nome</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.nome" name="nome"></ion-input>
+        <ion-input [(ngModel)]="telSelecionado.nome" formControlName="nome"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Sobrenome</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.sobrenome" name="sobrenome"></ion-input>
+        <ion-input [(ngModel)]="telSelecionado.sobrenome" formControlName="sobrenome"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Número</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.numero" name="numero" type="float" maxlength="15" placeholder="(99) 99999-9999" mask="(**) *****-****"></ion-input>
+        <ion-input [(ngModel)]="telSelecionado.numero" formControlName="numero" type="float" maxlength="15" placeholder="(99) 99999-9999" mask="(**) *****-****"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">E-mail</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.email" name="email"></ion-input>
+        <ion-input [(ngModel)]="telSelecionado.email" formControlName="email"></ion-input>
       </ion-item>
       <ion-list>
         <ion-item>
@@ -60,7 +60,7 @@
       </ion-list>
     </div>
     <div class="button__display">
-      <ion-button (click)="salvarDado()" routerLink="/listagem-telefones">
+      <ion-button type="submit" routerLink="/listagem-telefones">
         <ion-icon name="checkmark-outline"></ion-icon>
       </ion-button>
     </div>

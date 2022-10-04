@@ -2,6 +2,8 @@ import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TelefonesService } from 'src/app/telefones.service';
 import { AlertController } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-dados-lista',
@@ -13,11 +15,15 @@ export class DadosListaPage implements OnInit {
   public telSelecionado : any
   public valorPadrao = false
 
+
+  userForm : FormGroup
+
   constructor(
     private router : Router,
     private dadoSelecionado : TelefonesService,
     private route : ActivatedRoute,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private formBuilder : FormBuilder
   ) { }
 
     
@@ -31,6 +37,13 @@ export class DadosListaPage implements OnInit {
       this.telSelecionado = {id, nome: "", numero: "", tipo: ""}
       this.valorPadrao = true
     }
+
+    this.userForm = this.formBuilder.group({
+      nome : ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
+      numero: ['', Validators.compose([Validators.required, Validators.minLength(15), Validators.maxLength(15)])],
+      sobrenome: [''],
+      email: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(50)])]
+    })
   }
 
   async presentAlert() {

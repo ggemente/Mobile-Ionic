@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import {IonicInputMaskModule} from "@thiagoprz/ionic-input-mask";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {IonicInputMaskModule } from "@thiagoprz/ionic-input-mask";
 import { IonicModule } from '@ionic/angular';
 
 import { DadosListaPageRoutingModule } from './dados-lista-routing.module';
@@ -14,7 +14,8 @@ import { DadosListaPage } from './dados-lista.page';
     FormsModule,
     IonicModule,
     DadosListaPageRoutingModule,
-    IonicInputMaskModule
+    IonicInputMaskModule,
+    ReactiveFormsModule
   ],
   declarations: [DadosListaPage]
 })

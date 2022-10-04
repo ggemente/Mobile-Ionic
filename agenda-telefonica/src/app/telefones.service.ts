@@ -23,7 +23,7 @@ export class TelefonesService {
   }
 
   recebeDados(dadosRecebidos : any){
-    dadosRecebidos.id = this.contatos.length + 1
+    dadosRecebidos.id = Math.max(this.contatos.length + 1)
     this.contatos.push(dadosRecebidos)
   }
 
