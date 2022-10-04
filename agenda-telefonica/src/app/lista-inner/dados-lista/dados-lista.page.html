@@ -43,7 +43,7 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Número</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.numero" formControlName="numero" type="float" maxlength="15" placeholder="(99) 99999-9999" mask="(**) *****-****"></ion-input>
+        <ion-input [(ngModel)]="telSelecionado.numero" formControlName="numero" type="float" maxlength="15" placeholder="(99) 99999-9999" simpleMask="(99) 99999-9999"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">E-mail</ion-label>
@@ -60,7 +60,7 @@
       </ion-list>
     </div>
     <div class="button__display">
-      <ion-button type="submit" routerLink="/listagem-telefones">
+      <ion-button type="submit">
         <ion-icon name="checkmark-outline"></ion-icon>
       </ion-button>
     </div>

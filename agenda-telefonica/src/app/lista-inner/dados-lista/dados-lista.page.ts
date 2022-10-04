@@ -69,19 +69,42 @@ export class DadosListaPage implements OnInit {
     await alert.present();
   }
 
+  async alertinha() {
+    const alert = await this.alertController.create({
+      header: 'Dados Incorretos',
+      buttons: [
+        {
+          text: 'Retornar',
+          role: 'excluir',
+        }
+      ],
+    });
+
+    await alert.present();
+  }
+
   alterarDado() {
     this.valorPadrao = true
   }
 
   salvarDado() {
     const id : number = Number(this.route.snapshot.paramMap.get('id'))
-    if (id > 0) {
-      this.valorPadrao = false
+    if (this.userForm.invalid || this.userForm.pending) {
+      this.alertinha()
     }
+
     else {
-      this.dadoSelecionado.recebeDados(this.telSelecionado)
-      this.valorPadrao = false
+      if (id > 0) {
+        this.valorPadrao = false
+      }
+      else {
+        this.dadoSelecionado.recebeDados(this.telSelecionado)
+        this.valorPadrao = false
+        this.router.navigate(['/listagem-telefones/'])
+      }
     }
+    
+
   }
 
   removerDado() {
