@@ -42,7 +42,8 @@ export class DadosListaPage implements OnInit {
       nome : ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
       numero: ['', Validators.compose([Validators.required, Validators.minLength(15), Validators.maxLength(15)])],
       sobrenome: [''],
-      email: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(50)])]
+      tipo: ['',Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.email,Validators.maxLength(50)])]
     })
   }
 
