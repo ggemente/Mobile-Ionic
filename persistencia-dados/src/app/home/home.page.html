@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form [formGroup]="pessoaForm" (submit)="enviar()">
+      <ion-item lines="none">
+        <ion-input formControlName="nome" placeholder="Nome: "> </ion-input>
+      </ion-item>
+      <ion-button padding shape="round" expand="block" type="submit">Gravar</ion-button>
+    </form>
+
+
+    <ion-item *ngFor="let arrayPessoa of arrayPessoa" lines="none">
+      <ion-label>
+        {{arrayPessoa.nome}}
+      </ion-label>
+    </ion-item>
+  </div>
+</ion-content>

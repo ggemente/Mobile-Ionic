@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
+import { Guid } from 'guid-typescript';
+import { Pessoa } from '../models/pessoa.model';
+import { PessoasService } from '../services/pessoas.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +11,8 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  
+  private pessoa : Pessoa
 
   num1 : string
   num2: string
@@ -16,7 +21,9 @@ export class HomePage {
   saida2: string
   imagem : any = "assets/imc.png"
 
-  constructor() {}
+  constructor(
+    private pessoaService : PessoasService
+  ) {}
   
 
   calcular() {
@@ -69,13 +76,19 @@ export class HomePage {
       this.saida = resultado.toString()
       this.imagem = 'assets/warning.png'
       }
+
     }
-  
-    
+
+    this.pessoa = {
+      id: Guid.createEmpty(),
+      peso : this.num1,
+      altura : this.num2,
+      sexo : this.sexo,
+      saida : this.saida,
+      saida2 : this.saida2
+    }
+
+    this.pessoaService.inserir(this.pessoa)
 
   }
-
-
-
-
 }
