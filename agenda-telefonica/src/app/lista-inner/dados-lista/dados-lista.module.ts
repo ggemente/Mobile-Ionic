@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {IonicInputMaskModule } from "@thiagoprz/ionic-input-mask";
 import { IonicModule } from '@ionic/angular';
 import { SimpleMaskModule } from 'ngx-ion-simple-mask'
 
@@ -15,7 +14,6 @@ import { DadosListaPage } from './dados-lista.page';
     FormsModule,
     IonicModule,
     DadosListaPageRoutingModule,
-    IonicInputMaskModule,
     ReactiveFormsModule,
     SimpleMaskModule
   ],

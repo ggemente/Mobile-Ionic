@@ -35,23 +35,23 @@
     <div class="edit__display">
       <ion-item>
         <ion-label position="floating">Nome</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.nome" formControlName="nome"></ion-input>
+        <ion-input  formControlName="nome"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Sobrenome</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.sobrenome" formControlName="sobrenome"></ion-input>
+        <ion-input  formControlName="sobrenome"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Número</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.numero" formControlName="numero" type="float" maxlength="15" placeholder="(99) 99999-9999" simpleMask="(99) 99999-9999"></ion-input>
+        <ion-input  formControlName="numero" type="float" maxlength="15" placeholder="(99) 99999-9999" simpleMask="(99) 99999-9999"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">E-mail</ion-label>
-        <ion-input [(ngModel)]="telSelecionado.email" formControlName="email"></ion-input>
+        <ion-input formControlName="email"></ion-input>
       </ion-item>
       <ion-list>
         <ion-item>
-          <ion-select placeholder="Selecione o tipo do contato:" [(ngModel)]="telSelecionado.tipo" [ngModelOptions]="{standalone: true}">
+          <ion-select placeholder="Selecione o tipo do contato:" formControlName="tipo">
             <ion-select-option value="celular" name="celular">Celular</ion-select-option>
             <ion-select-option value="casa" name="casa">Casa</ion-select-option>
             <ion-select-option value="trabalho" name="trabalho">Trabalho</ion-select-option>

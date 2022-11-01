@@ -1,5 +1,8 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { TelefonesService } from 'src/app/telefones.service';
+import { Storage } from '@ionic/storage-angular';
+import { Guid } from 'guid-typescript';
+import { Contato } from 'src/app/models/contato.model';
 
 @Component({
   selector: 'app-listagem-telefones',
@@ -10,11 +13,12 @@ export class ListagemTelefonesPage implements OnInit {
 
   public todosDados : any
 
-  constructor(dadosTel : TelefonesService, private renderer : Renderer2) {
+  constructor(public dadosTel : TelefonesService, private renderer : Renderer2) {
     this.todosDados = dadosTel.enviar_dados()
    }
 
   ngOnInit() {
+    this.dadosTel.listarTodos().then(todosDados => {this.todosDados = todosDados})
   }
 
   mudarTema() {
