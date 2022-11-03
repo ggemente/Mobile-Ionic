@@ -19,6 +19,7 @@ export class ListagemTelefonesPage implements OnInit {
 
   ngOnInit() {
     this.dadosTel.listarTodos().then(todosDados => {this.todosDados = todosDados})
+    console.log(this.todosDados)
   }
 
   mudarTema() {

@@ -33,7 +33,7 @@ export class DadosListaPage implements OnInit {
   ngOnInit() {
     const id : string = String(this.route.snapshot.paramMap.get('id'))
     if (id != 'edit') {
-     // this.telSelecionado = this.dadoSelecionado.enviar_id(id)
+      this.telSelecionado.enviar_id(id).then(retorno_userID => this.contato = retorno_userID)
     }
     else {
      // this.telSelecionado = {id, nome: "", numero: "", tipo: ""}
@@ -92,14 +92,14 @@ export class DadosListaPage implements OnInit {
   }
 
   salvarDado() {
-    const id : number = Number(this.route.snapshot.paramMap.get('id'))
+    const id : string = String(this.route.snapshot.paramMap.get('id'))
     console.log(this.userForm.value)
     if (this.userForm.invalid || this.userForm.pending) {
       this.alertinha()
     }
 
     else {
-      if (id > 0) {
+      if (id != 'edit') {
         this.valorPadrao = false
       }
       else {
